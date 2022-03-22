@@ -1,16 +1,15 @@
-const usuarios = require("../models/usuario");
-const { use } = require("../routes");
+const { Usuario } = require("../models/index");
+
 const error = require("../utils/handleError")
 const { tokenSign } = require('../utils/handlejwt');
+
+let usuarioRepository = Usuario
+
 const login = async(req, res) => {
     const body = req.body;
-    let cond = {
-        where: {
-            email: body.email,
-            password: body.password
-        }
-    }
-    const user = await usuarios.findOne(cond)
+
+    const user = await usuarioRepository.validarEmailandClave(body)
+
     if (!user) {
         error(res, "No se Encontro", 403)
     }

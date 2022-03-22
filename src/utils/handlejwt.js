@@ -4,9 +4,7 @@ const tokenSign = async(user) => {
     const sign = jwt.sign({
             id: user.usuario_id
         },
-        JWTSECRET, {
-            expiresIn: "120s"
-        }
+        JWTSECRET
     );
     return sign
 }
