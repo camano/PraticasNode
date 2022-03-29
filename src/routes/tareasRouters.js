@@ -2,10 +2,10 @@ const express = require('express')
 const router = express.Router()
 
 
-const { getUsuarios, getPedidos } = require('../controllers/usuarios');
+const tareas = require('../controllers/tareasControllers');
 const authMiddleware = require('../middleware/authMiddleware');
 
-router.get('/', authMiddleware, getUsuarios)
-router.get('/consumiendo', getPedidos)
+router.get('/', authMiddleware, tareas)
+
 
 module.exports = router
