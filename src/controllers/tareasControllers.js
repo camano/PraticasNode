@@ -9,11 +9,11 @@ const getTareas = async(req, res) => {
         let limit = parseInt(req.query.limit);
 
         const offset = page ? page * limit : 0;
-        let paginador = {
+        /* let paginador = {
             "limit": limit,
             "offset": offset
-        }
-        const lista = await tareasRepository.listarTareas(paginador);
+        } */
+        const lista = await tareasRepository.listarTareas();
 
 
         res.send(lista)

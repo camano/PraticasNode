@@ -9,10 +9,11 @@ CREATE TABLE IF NOT EXISTS usuarios (
 
 CREATE TABLE IF not EXISTS tarea(
   tarea_id SERIAL PRIMARY key ,
-  tarea_descripcion varchar("150") not null,
+  tarea_descripcion varchar(150) not null,
   usuario_id INT,
   FOREIGN key(usuario_id)
     REFERENCES usuarios (usuario_id)
 );
+insert into usuarios (email,password)values ('camanojhonatan@gmail.com','123456');
 
-INSERT INTO tarea (tarea_descripcion,usuario_id)values("tarea de matematicas",1);
+INSERT INTO tarea (tarea_descripcion,usuario_id)values('tarea de matematicas',1);

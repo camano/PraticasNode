@@ -25,5 +25,8 @@
         "request-promise": "^4.2.6",
         "sequelize": "^6.17.0",
         "tedious": "^14.3.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15"
     }
 }
