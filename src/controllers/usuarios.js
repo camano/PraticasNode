@@ -26,7 +26,7 @@ const getPedidos = async(req, res) => {
         var hh = await apiConeccion.apiConeccion(url, options)
         res.json(hh)
     } catch (error) {
-        console.log("Se produjo este error :", error);
+
         Errores(res, "Un problema consumiendo api", 401)
     }
 }

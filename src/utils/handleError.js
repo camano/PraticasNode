@@ -1,5 +1,5 @@
 const ErrorHttps = (res, mensaje = "Algo sucedio", code = 403) => {
     res.status(code);
-    res.send({ Error: mensaje })
+    res.json({ Error: mensaje })
 }
 module.exports = ErrorHttps
