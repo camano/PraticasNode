@@ -4,7 +4,8 @@ const tarea = require("./tareas");
 const tareaDao = require("../repository/tareasDao")
 const usuarioDao = require("../repository/usuarioDao")
 
-tarea.hasMany(usurio, { foreignKey: "usuario_id" })
+
+tarea.belongsTo(usurio, { foreignKey: "usuario_id" })
 
 let Tarea
 let Usuario
