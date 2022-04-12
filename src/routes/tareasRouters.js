@@ -3,10 +3,10 @@ const router = express.Router()
 
 
 const { getTareas, saveTareas, deleteTarea, getTareaId } = require('../controllers/tareasControllers');
-const authMiddleware = require('../middleware/authMiddleware');
+const { authMiddleware, basicAuthentication } = require('../middleware/authMiddleware');
 
 router.get('/', getTareas)
-router.post('/', authMiddleware, saveTareas)
+router.post('/', basicAuthentication, saveTareas)
 router.delete('/:id', authMiddleware, deleteTarea)
 router.get('/:id', getTareaId)
 

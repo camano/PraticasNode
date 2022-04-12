@@ -23,4 +23,22 @@ const authMiddleware = async(req, res, next) => {
     }
 }
 
-module.exports = authMiddleware
+
+const basicAuthentication = async(req, res, next) => {
+    const authorization = req.headers.authorization;
+    if (authorization) {
+
+        const encoded = authorization.substring(6);
+        const decoded = Buffer.from(encoded, 'base64').toString('ascii');
+
+        const [email, password] = decoded.split(':');
+        //const match = await bcrypt.compare(password, authenticatedUser.password);
+        if (email != "bazuco28" || password != "12345") {
+            res.send({ mesanje: "No tiene autorizacion" })
+            return
+        }
+    }
+    next();
+}
+
+module.exports = { authMiddleware, basicAuthentication }
