@@ -30,13 +30,16 @@ const basicAuthentication = async(req, res, next) => {
 
         const encoded = authorization.substring(6);
         const decoded = Buffer.from(encoded, 'base64').toString('ascii');
-
+        console.log("----", authorization);
         const [email, password] = decoded.split(':');
         //const match = await bcrypt.compare(password, authenticatedUser.password);
         if (email != "bazuco28" || password != "12345") {
-            res.send({ mesanje: "No tiene autorizacion" })
+            Errores(res, "No tiene acceso", 403)
             return
         }
+    } else {
+        Errores(res, "No tiene acceso", 403)
+        return
     }
     next();
 }

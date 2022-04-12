@@ -8,7 +8,7 @@ const { authMiddleware, basicAuthentication } = require('../middleware/authMiddl
 router.get('/', getTareas)
 router.post('/', basicAuthentication, saveTareas)
 router.delete('/:id', authMiddleware, deleteTarea)
-router.get('/:id', getTareaId)
+router.get('/:id', basicAuthentication, getTareaId)
 
 
 module.exports = router
