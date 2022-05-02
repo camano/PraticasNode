@@ -13,9 +13,15 @@ const getTareas = async(req, res) => {
             "limit": limit,
             "offset": offset
         } */
-        const lista = await tareasRepository.listarTareas();
+        const tarea = tareasRepository.listarTareas()
+            .then(respuesta => {
+                return respuesta;
+            })
+            .catch((errors) => {
+                console.log("errors ", errors);
+            })
+        tarea.then(hhh => res.send(hhh)).catch(errors => errores(res, errors, 403));
 
-        res.send(lista)
     } catch (error) {
 
         errores(res, "Error en el controlador", 403);
