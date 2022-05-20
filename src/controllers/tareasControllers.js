@@ -1,9 +1,9 @@
 const errores = require("../utils/handleError")
-const { Tarea } = require("../models/index")
+const {Tarea} = require("../models/index")
 
 const tareasRepository = Tarea
 
-const getTareas = async(req, res) => {
+const getTareas = async (req, res) => {
     try {
         let page = parseInt(req.query.page);
         let limit = parseInt(req.query.limit);
@@ -28,7 +28,7 @@ const getTareas = async(req, res) => {
     }
 }
 
-const saveTareas = async(req, res) => {
+const saveTareas = async (req, res) => {
     try {
 
         let {
@@ -51,7 +51,7 @@ const saveTareas = async(req, res) => {
         errores(res, "Error en guardar Tarea", 403);
     }
 }
-const deleteTarea = async(req, res) => {
+const deleteTarea = async (req, res) => {
     try {
         let id = req.params.id;
         const getTareaId = await tareasRepository.getTareaId(id);
@@ -71,7 +71,7 @@ const deleteTarea = async(req, res) => {
     }
 }
 
-const getTareaId = async(req, res) => {
+const getTareaId = async (req, res) => {
     try {
         let id = req.params.id;
         const getTareaId = await tareasRepository.getTareaId(id);
@@ -88,4 +88,4 @@ const getTareaId = async(req, res) => {
     }
 }
 
-module.exports = { getTareas, saveTareas, deleteTarea, getTareaId }
+module.exports = {getTareas, saveTareas, deleteTarea, getTareaId}
